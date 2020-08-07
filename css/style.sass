@@ -1,0 +1,457 @@
+/* Sass Document */
+$bg: #363636
+$bgc: #EAE2DA
+$pink: #EA8888
+$blue: #034651
+
+=size($w,$h:$w)
+	width: $w
+	height: $h
+=bgpos($pos:center,$size:cover)
+	background-position: $pos
+	background-size: $size
+	background-repeat: no-repeat
+=flex($jc:center,$ai:center)
+	display: -webkit-flex
+	display: -moz-flex
+	display: -ms-flex
+	display: -o-flex
+	display: flex
+	justify-content: $jc
+	align-items: $ai
+
+*
+	padding: 0
+	margin: 0
+	position: relative
+	box-sizing: border-box
+
+html,body
+	+size(100%)
+	font-family: '微軟正黑體'
+
+h1
+	font-size: 48px
+	letter-spacing: 7px
+h2
+	font-size: 40px
+	letter-spacing: 5px
+h3
+	font-size: 36px
+h4
+	font-size: 28px
+h5
+	font-size: 24px
+h6
+	font-size: 18px
+
+//main
+.inner
+	width: 1300px
+	height: 700px
+
+.navBar
+	+size(100%,70px)
+	+flex
+	background-color: $bg
+	color: white
+	position: fixed
+	left: 0
+	top: 0
+	z-index: 10
+	.inner
+		height: 100%
+		+flex(space-between)
+		h3
+			font-size: 32px
+		>img
+			+size(24px)
+
+		ul
+			list-style-type: none
+			+flex
+			li
+				margin: 0 20px
+				font-size: 24px
+
+.slideShow
+	+size(100%,100vh)
+	background-image: url(../images/banner.jpg)
+	+bgpos
+	+flex
+	.slide
+		+size(100%,100vh)
+		overflow: hidden
+		position: absolute
+		left: 0
+		top: 0
+		.wrapper
+			+size(300%,100%)
+			+flex
+			transition-duration: 0.5s
+			&.slide1
+				margin-left: 0%
+			&.slide2
+				margin-left: -100%
+			&.slide3
+				margin-left: -200%
+			.item
+				+size(calc(100%/3),100%)
+				+flex
+	.inner
+		+flex
+		.btnL
+			transform: rotate(180deg)
+			position: absolute
+			left: 0
+			cursor: pointer
+		.btnR
+			position: absolute
+			right: 0 
+			cursor: pointer
+		ul
+			list-style-type: none
+			+flex
+			position: absolute
+			bottom: -70px
+			li
+				+size(30px)
+				border-radius: 50%
+				border: 5px solid white
+				margin: 0 60px
+				opacity: .7
+				transition-duration: 0.3s
+				cursor: pointer
+				&.show , &:hover
+					background-color: white
+					opacity: 1
+	
+.bg
+	+size(100%)
+	position: fixed
+	left: 0
+	top: 0
+	background-color: $bgc
+	overflow: hidden
+	z-index: -1
+	.cir
+		border-radius: 50%
+		position: absolute
+		&.cir1
+			+size(1100px)
+			background-color: rgba($pink,0.6)
+			left: -350px
+			top: -550px
+			animation: scale 10s infinite
+		&.cir2
+			+size(100px)
+			background-color: rgba($blue,0.6)
+			right: 200px
+			top: 70px
+			animation: scale 10s -3s infinite
+		&.cir3
+			+size(350px)
+			background-color: rgba($blue,0.6)
+			right: -25px
+			bottom: -150px
+			animation: scale 10s -6s infinite
+	
+.about
+	+size(100%,100vh)
+	+flex
+	.inner
+		+flex
+		flex-direction: column
+		.wrapper
+			+flex
+			margin-top: 50px
+			.item
+				width: 50%
+				+flex
+				flex-direction: column
+				&.al
+					align-items: flex-start
+					h5
+						width: 80%
+						line-height: 40px
+					h4
+						padding: 3px 100px
+						border: 3px solid black
+						border-radius: 10px
+						transition-duration: 0.5s
+						box-shadow: 5px 5px 5px rgba(black,0.5)
+						transform: translate(-3px,-3px)
+						&:hover
+							background-color: black
+							color: white
+							box-shadow: 2px 2px 5px rgba(black,0.5)
+							transform: translate(0px,0px)
+				&.ar
+					h4
+						letter-spacing: 3px
+					h3
+						letter-spacing: 4px
+				> *
+					margin-bottom: 40px
+				h2
+					margin-bottom: 60px
+				.wrap
+					+flex
+					flex-wrap: wrap
+					.count
+						width: 50%
+						+flex
+						flex-direction: column
+						margin-bottom: 30px
+	
+.envir
+	+size(100%,100vh)
+	+flex
+	.inner
+		+flex
+		flex-direction: column
+		.wrapper
+			margin-top: 100px
+			+flex
+			.item
+				+flex
+				flex: 1
+				flex-direction: column
+				margin: 0 20px
+				padding: 50px 30px
+				transition-duration: 0.5s
+				border-radius: 5px
+				.img
+					+size(200px)
+					border-radius: 50%
+					+bgpos
+					margin-bottom: 30px
+					border: 5px solid white
+					&.bg1
+						background-image: url(../images/envir_1.jpg)
+					&.bg2
+						background-image: url(../images/envir_2.jpg)
+					&.bg3
+						background-image: url(../images/envir_3.jpg)
+				h5
+					margin-top: 30px
+					text-align: center
+				h4
+					position: absolute
+					bottom: -18px
+					background-color: white
+					box-shadow: 2px 2px 10px rgba(black,0.5)
+					border-radius: 5px
+					padding: 4px 40px
+					font-size: 24px
+					line-height: 28px
+					transition-duration: 0.5s
+				&:hover
+					box-shadow: 5px 5px 10px rgba(black,0.5)
+					transform: translate(-5px,-5px)
+					background-color: white
+					h4:hover
+						background-color: $pink
+						color: white
+
+.shop
+	+size(100%,100vh)
+	+flex
+	.bgText
+		+size(100%)
+		position: absolute
+		left: 0
+		top: 0
+		overflow: hidden
+		h1
+			position: absolute
+			color: rgba($blue,0.1)
+			transform: rotate(-20deg)
+		.left
+			font-size: 120px
+			left: 100px
+			top: 50px
+		.right
+			font-size: 210px
+			right: 100px
+			bottom: 100px
+	.inner
+		+flex
+		flex-direction: column
+		.wrapper
+			width: 100%
+			+flex(space-between)
+			flex-wrap: wrap
+			margin-top: 100px
+			.item
+				+size(220px,270px)
+				margin-bottom: 50px
+				+bgpos
+				box-shadow: 5px 5px 7px rgba(black,0.5)
+				&.bg1
+					background-image: url(../images/shop_1.jpg)
+				&.bg2
+					background-image: url(../images/shop_2.jpg)
+				&.bg3
+					background-image: url(../images/shop_3.jpg)
+					background-position: 30%
+				&.bg4
+					background-image: url(../images/shop_4.jpg)
+				&.bg5
+					background-image: url(../images/shop_5.jpg)
+				&.bg6
+					background-image: url(../images/shop_6.jpg)
+				&.bg7
+					background-image: url(../images/shop_7.jpg)
+				&.bg8
+					background-image: url(../images/shop_8.jpg)
+				&.bg9
+					background-image: url(../images/shop_9.jpg)
+				&.bg10
+					background-image: url(../images/shop_10.jpg)
+				&:hover
+					.wrap
+						height: 120px
+						padding-top: 0
+						.btn
+							transition: 0.3s 0.3s
+							opacity: 1
+				.wrap
+					+size(100%,90px)
+					position: absolute
+					bottom: 0
+					left: 0
+					background-color: white
+					+flex
+					flex-direction: column
+					transition-duration: 0.5s
+					padding-top: 30px
+					overflow: hidden
+					> *
+						margin: 3px
+					.btn
+						border: 1px solid $pink
+						padding: 1px 15px
+						border-radius: 5px
+						font-size: 16px
+						color: $pink
+						transition-duration: 0.3s
+						cursor: pointer
+						opacity: 0
+						&:hover
+							background-color: $pink
+							color: white
+			
+.contact
+	+size(100%,100vh)
+	+flex
+	.inner
+		+flex
+		flex-direction: column
+		> h4
+			margin: 50px 0
+			text-align: center
+		form
+			width: 500px
+			+flex
+			flex-direction: column
+			.wrap
+				+flex
+				width: 100%
+				.item
+					margin: 0
+					margin-right: 30px
+					.radios
+						margin-top: 10px
+						+flex(flex-start)
+						input
+							+size(20px)
+							margin: 0 20px 0 5px
+			.item
+				width: 100%
+				margin: 15px
+				> input,textarea
+					width: 100%
+					background-color: transparent
+					border: 2px solid black
+					margin-top: 10px
+					&::placeholder
+						font-size: 18px
+						padding-left: 10px
+					&:focus
+						border: 2px solid rgba(black,0.5)
+						outline: none
+						font-size: 18px
+						font-family: '微軟正黑體'
+						padding-left: 10px
+				> input
+					height: 35px
+			input,textarea,button
+				font-family: "微軟正黑體"
+			button
+				padding: 5px 100px
+				border: 2px solid black
+				margin-top: 50px
+				background-color: transparent
+				font-size: 24px
+				border-radius: 5px
+				transition-duration: 0.5s
+				&:focus
+					outline: none
+				&:hover
+					background-color: black
+					color: white
+
+.footer
+	+size(100%,400px)
+	+flex
+	flex-direction: column
+	border-top: 1px solid rgba(black,0.5)
+	.infos
+		+size(100%,300px)
+		+flex
+		.inner
+			padding: 20px 0
+			+flex
+			.item
+				flex: 1
+				+flex
+				flex-direction: column
+				.icons
+					margin-top: 30px
+					img
+						+size(50px)
+						margin: 0 15px
+				h5
+					margin-bottom: 10px
+				h4
+					margin-bottom: 10px
+				form
+					+flex
+					input
+						height: 30px
+						border: 1px solid black
+						background-color: transparent
+						font-size: 18px
+						padding-left: 10px
+						font-family: '微軟正黑體'
+					button
+						height: 30px
+						padding: 5px 10px
+						background-color: transparent
+						border: 1px solid black
+						img
+							height: 15px
+	.copyrights
+		+size(100%,100px)
+		+flex
+		.inner
+			+flex(flex-start)
+	.inner
+		+size(1300px,100%)
+	
+@keyframes scale
+	0%,100%
+		transform: scale(1)
+	50%
+		transform: scale(1.05)
