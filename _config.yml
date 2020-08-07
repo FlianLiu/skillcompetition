@@ -1,0 +1,4 @@
+deploy:
+type: github
+repository: https://github.com/FlianLiu/skillcompetition.git
+root: /flianliu.github.io/
